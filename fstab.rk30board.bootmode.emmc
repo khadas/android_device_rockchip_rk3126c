@@ -6,7 +6,7 @@
 /dev/block/platform/1021c000.dwmmc/by-name/oem            /oem                ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,check
 /dev/block/platform/1021c000.dwmmc/by-name/cache          /cache              ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait,check
 /dev/block/platform/1021c000.dwmmc/by-name/userdata       /data               f2fs      noatime,nodiratime,nosuid,nodev,discard,inline_xattr                   wait,check,notrim,forceencrypt=/dev/block/platform/1021c000.dwmmc/by-name/metadata
-
+/dev/block/platform/1021c000.dwmmc/by-name/misc         /misc               emmc      defaults     defaults
 /devices/platform/1021c000.dwmmc/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 
 /devices/platform/*.usb*   auto vfat defaults      voldmanaged=usb:auto
