@@ -15,7 +15,7 @@
 #
 
 # Use the non-open-source parts, if they're present
--include vendor/rockchip/rk312x/BoardConfigVendor.mk
+-include vendor/rockchip/common/BoardConfigVendor.mk
 -include device/rockchip/common/BoardConfig.mk
 
 TARGET_ARCH := arm
@@ -26,7 +26,7 @@ TARGET_CPU_ABI2 := armeabi
 ENABLE_CPUSETS := true
 
 TARGET_PREBUILT_KERNEL := kernel/arch/arm/boot/Image
-PRODUCT_PACKAGE_OVERLAYS += device/rockchip/rk312x/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/rockchip/$(TARGET_BOARD_PLATFORM)/overlay
 
 
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel

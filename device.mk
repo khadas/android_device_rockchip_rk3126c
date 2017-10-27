@@ -35,12 +35,12 @@ ifeq ($(HOST_OS),linux)
 endif
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.rk312x.rc:root/init.rk312x.rc \
+    $(LOCAL_PATH)/init.rk3126c.rc:root/init.rk3126c.rc \
     $(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
-    device/rockchip/rk312x/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
-    device/rockchip/rk312x/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
-    device/rockchip/rk312x/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml
+    device/rockchip/$(TARGET_BOARD_PLATFORM)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
+    device/rockchip/$(TARGET_BOARD_PLATFORM)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
+    device/rockchip/$(TARGET_BOARD_PLATFORM)/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml
 
 # Add for function frp
 ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET)), true)
@@ -54,7 +54,7 @@ endif
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
 
-$(call inherit-product-if-exists, vendor/rockchip/rk312x/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/rockchip/$(TARGET_BOARD_PLATFORM)/device-vendor.mk)
 
 #for enable optee support
 ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
