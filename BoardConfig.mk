@@ -25,7 +25,7 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 ENABLE_CPUSETS := true
 
-TARGET_PREBUILT_KERNEL := kernel/arch/arm/boot/Image
+TARGET_PREBUILT_KERNEL := kernel/arch/arm/boot/zImage
 PRODUCT_PACKAGE_OVERLAYS += device/rockchip/$(TARGET_BOARD_PLATFORM)/overlay
 
 
