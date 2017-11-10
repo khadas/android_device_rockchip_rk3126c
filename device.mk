@@ -38,17 +38,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk3126c.rc:root/init.rk3126c.rc \
     $(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml
-
-# Add for function frp
-ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET)), true)
-ifeq ($(strip $(BUILD_WITH_GOOGLE_FRP)), true)
-    PRODUCT_PROPERTY_OVERRIDES += \
-        ro.frp.enable=true
-endif
-endif
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
@@ -61,11 +51,6 @@ ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
 
        device/rockchip/common/init.optee_verify.rc:root/init.optee.rc
 endif
-
-# Setup dm-verity configs
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/1021c000.dwmmc/by-name/system
-PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/1021c000.dwmmc/by-name/vendor
-$(call inherit-product, build/target/product/verity.mk)
 
 #add Rockchip properties here
 #

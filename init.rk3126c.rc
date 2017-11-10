@@ -38,9 +38,3 @@ on boot
     chown system system  /sys/devices/system/cpu/cpufreq/interactive/boostpulse
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse
   
-    
-    on property:ro.bootmode=emmc && property:ro.frp.enable=true
-    setprop ro.frp.pst /dev/block/platform/ff0f0000.dwmmc/by-name/frp
-
-    on property:ro.bootmode=unknown && property:ro.frp.enable=true
-    setprop ro.frp.pst /dev/block/rknand_frp
