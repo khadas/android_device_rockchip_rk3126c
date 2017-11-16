@@ -38,7 +38,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk3126c.rc:root/init.rk3126c.rc \
     $(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml
+    device/rockchip/$(TARGET_BOARD_PLATFORM)/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
 
 # setup dalvik vm configs.
