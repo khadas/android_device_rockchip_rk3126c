@@ -50,6 +50,7 @@ $(call inherit-product-if-exists, vendor/rockchip/$(TARGET_BOARD_PLATFORM)/devic
 #for enable optee support
 ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
 
+PRODUCT_COPY_FILES += \
        device/rockchip/common/init.optee_verify.rc:root/init.optee.rc
 endif
 
