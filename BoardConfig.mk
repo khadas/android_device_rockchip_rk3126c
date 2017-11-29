@@ -93,3 +93,10 @@ BOARD_USE_SPARSE_SYSTEM_IMAGE := true
 # Google Service and frp overlay
 BUILD_WITH_GOOGLE_MARKET := false
 BUILD_WITH_GOOGLE_FRP := false
+
+# for drm-widevine support
+BUILD_WITH_WIDEVINE := true
+
+# Config Low mem, set BOARD_USE_LOW_MEM = true in 512M
+BOARD_USE_LOW_MEM := false
+BOARD_WITH_MEM_OPTIMISE := true
