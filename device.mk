@@ -17,8 +17,7 @@
 PRODUCT_PACKAGES += \
     memtrack.$(TARGET_BOARD_PLATFORM) \
     WallpaperPicker \
-    Launcher3 \
-    Lightning
+    Launcher3
 
 #$_rbox_$_modify_$_zhengyang: add displayd
 PRODUCT_PACKAGES += \
@@ -89,5 +88,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
                 ro.factory.tool=0 \
                 ro.kernel.android.checkjni=0 \
                 ro.sf.lcd_density=160 \
-                ro.adb.secure=0 \
                 persist.enable_task_snapshots=false
