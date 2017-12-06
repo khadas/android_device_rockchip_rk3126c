@@ -100,3 +100,6 @@ BUILD_WITH_WIDEVINE := true
 # Config Low mem, set BOARD_USE_LOW_MEM = true in 512M
 BOARD_USE_LOW_MEM := false
 BOARD_WITH_MEM_OPTIMISE := true
+
+# camera enable
+BOARD_CAMERA_SUPPORT := true
