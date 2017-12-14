@@ -98,7 +98,7 @@ BUILD_WITH_GOOGLE_FRP := false
 BUILD_WITH_WIDEVINE := true
 
 # Config Low mem, set BOARD_USE_LOW_MEM = true in 512M
-BOARD_USE_LOW_MEM := false
+BUILD_WITH_GO_OPT := false
 BOARD_WITH_MEM_OPTIMISE := true
 
 # camera enable
