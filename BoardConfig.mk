@@ -97,9 +97,8 @@ BUILD_WITH_GOOGLE_FRP := false
 # for drm-widevine support
 BUILD_WITH_WIDEVINE := true
 
-# Config Low mem, set BOARD_USE_LOW_MEM = true in 512M
-BUILD_WITH_GO_OPT := false
-BOARD_WITH_MEM_OPTIMISE := true
+# Config GO Optimization
+BUILD_WITH_GO_OPT := true
 
 # camera enable
 BOARD_CAMERA_SUPPORT := true
@@ -108,3 +107,6 @@ BOARD_CAMERA_SUPPORT := true
 BOARD_SUPPORT_HEVC := false
 BOARD_SUPPORT_VP9 := false
 BOARD_SUPPORT_VP6 := false
+
+# enable SVELTE malloc
+MALLOC_SVELTE := true
