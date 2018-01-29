@@ -95,8 +95,8 @@ BOARD_USE_SPARSE_SYSTEM_IMAGE := true
 BUILD_WITH_GOOGLE_MARKET := false
 BUILD_WITH_GOOGLE_FRP := false
 
-# for drm-widevine support
-BUILD_WITH_WIDEVINE := true
+# Add widevine L3 support
+BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 
 # Config GO Optimization
 BUILD_WITH_GO_OPT := true
