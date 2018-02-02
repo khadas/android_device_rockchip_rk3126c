@@ -23,4 +23,6 @@
          for immersive mode.
          Override to disable immersive mode confirmation for certain packages. -->
     <string name="def_immersive_mode_confirmations" translatable="false">confirmed</string>
+    <bool name="def_bluetooth_on">false</bool>
+    <bool name="def_accelerometer_rotation">false</bool>
 </resources>

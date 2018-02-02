@@ -53,6 +53,10 @@ PRODUCT_COPY_FILES += \
        device/rockchip/common/init.optee_verify.rc:root/init.optee.rc
 endif
 
+# Reduces GC frequency of foreground apps by 50%
+PRODUCT_PROPERTY_OVERRIDES += \
+               dalvik.vm.foreground-heap-growth-multiplier=2.0
+
 #add Rockchip properties here
 #
 PRODUCT_PROPERTY_OVERRIDES += \
