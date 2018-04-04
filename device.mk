@@ -94,4 +94,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
                 ro.sf.lcd_density=160 \
                 ro.build.shutdown_timeout=0 \
                 debug.hwui.use_partial_updates=false \
-                persist.enable_task_snapshots=false
+                persist.enable_task_snapshots=false \
+		ro.lmk.downgrade_pressure=70
