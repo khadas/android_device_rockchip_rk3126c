@@ -52,3 +52,9 @@ on boot
     chown system system  /sys/devices/system/cpu/cpufreq/interactive/boostpulse
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse
   
+    chown system system /sys/class/devfreq/dmc/system_status
+    chmod 0660 /sys/class/devfreq/dmc/system_status
+
+    chown system system /sys/class/devfreq/10091000.gpu/governor
+    chmod 0660 /sys/class/devfreq/10091000.gpu/governor
+
