@@ -2,4 +2,7 @@
 <performance-package>
 <app package="com.antutu.ABenchMark" mode="1"/>
 <app package="com.antutu.benchmark.full" mode="1"/>
+<app package="android.autofillservice.cts" mode="1" />
+<app package="com.android.cts.usepermission.UsePermissionTest23" mode="1" />
+<app package="com.android.cts.usepermission.UsePermissionTest22" mode="1" />
 </performance-package>
