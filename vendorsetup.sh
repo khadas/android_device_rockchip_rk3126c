@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-add_lunch_combo rk3126c-userdebug
-add_lunch_combo rk3126c-user
+add_lunch_combo rk3126c_go-userdebug
+add_lunch_combo rk3126c_go-user
 
+add_lunch_combo rk3126c_o-userdebug
+add_lunch_combo rk3126c_o-user

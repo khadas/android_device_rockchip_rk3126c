@@ -38,7 +38,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml
+    device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
+    vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml \
+    vendor/rockchip/common/phone/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 $(call inherit-product-if-exists, vendor/rockchip/$(TARGET_BOARD_PLATFORM)/device-vendor.mk)
 
@@ -57,6 +59,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #
 PRODUCT_PROPERTY_OVERRIDES += \
                 ro.ril.ecclist=112,911 \
+                ro.product.version = 1.0.0 \
+                ro.product.ota.host = www.rockchip.com:2300 \
                 ro.opengles.version=131072 \
                 wifi.interface=wlan0 \
                 rild.libpath=/system/lib/libril-rk29-dataonly.so \
@@ -91,4 +95,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
                 ro.build.shutdown_timeout=0 \
                 debug.hwui.use_partial_updates=false \
                 persist.enable_task_snapshots=false \
-		ro.lmk.downgrade_pressure=70
+                ro.lmk.downgrade_pressure=70

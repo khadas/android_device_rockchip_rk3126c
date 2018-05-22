@@ -13,24 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include device/rockchip/$(TARGET_BOARD_PLATFORM)/BoardConfig.mk
-# Inherit from those products. Most specific first.
-$(call inherit-product, device/rockchip/$(TARGET_BOARD_PLATFORM)/device.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+include device/rockchip/rk3126c/rk3126c_o/BoardConfig.mk
+$(call inherit-product, device/rockchip/rk3126c/device-common.mk)
 $(call inherit-product, device/rockchip/common/device.mk)
+
+# setup dalvik vm configs for normal device.
+$(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
 
 PRODUCT_CHARACTERISTICS := tablet
 
-PRODUCT_NAME := rk3126c
-PRODUCT_DEVICE := rk3126c
+PRODUCT_NAME := rk3126c_o
+PRODUCT_DEVICE := rk3126c_o
 PRODUCT_BRAND := rockchip
-PRODUCT_MODEL := rk3126c
+PRODUCT_MODEL := rk3126c_o
 PRODUCT_MANUFACTURER := rockchip
-
-# Get the long list of APNs
-PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml
-PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/spn-conf.xml:system/etc/spn-conf.xml
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.product.version = 1.0.0 \
-    ro.product.ota.host = www.rockchip.com:2300
-
-#PRODUCT_HAVE_OPTEE := true

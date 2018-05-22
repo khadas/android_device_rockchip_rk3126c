@@ -98,9 +98,6 @@ BUILD_WITH_GOOGLE_FRP := false
 # Add widevine L3 support
 BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 3
 
-# Config GO Optimization
-BUILD_WITH_GO_OPT := true
-
 # camera enable
 BOARD_CAMERA_SUPPORT := true
 

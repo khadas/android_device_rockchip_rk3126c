@@ -33,7 +33,7 @@ do
     esac
 done
 
-source build/envsetup.sh >/dev/null && setpaths
+source build/envsetup.sh >/dev/null
 TARGET_PRODUCT=`get_build_var TARGET_PRODUCT`
 
 #set jdk version

@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include device/rockchip/rk3126c/BoardConfig.mk
 
-PRODUCT_MAKEFILES := \
-        $(LOCAL_DIR)/rk3126c_go/rk3126c_go.mk \
-        $(LOCAL_DIR)/rk3126c_o/rk3126c_o.mk
+# For Go device, set this Marco to true
+BUILD_WITH_GO_OPT := true
