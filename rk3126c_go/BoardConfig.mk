@@ -17,3 +17,5 @@ include device/rockchip/rk3126c/BoardConfig.mk
 
 # For Go device, set this Marco to true
 BUILD_WITH_GO_OPT := true
+DEVICE_PACKAGE_OVERLAYS += $(TARGET_DEVICE_DIR)/overlay_1gb
+PRODUCT_DEX_PREOPT_PROFILE_DIR := $(TARGET_DEVICE_DIR)/profiles
