@@ -30,4 +30,6 @@
         <item>"/system/framework/arm/boot-framework.vdex"</item>
     </string-array>
 
+    <!-- True if the device supports split screen as a form of multi-window. -->
+    <bool name="config_supportsSplitScreenMultiWindow">false</bool>
 </resources>

@@ -142,7 +142,4 @@
     <bool translatable="false" name="config_wifi_enable_wifi_firmware_debugging">false</bool>
     <!-- Integer size limit, in KB, for a single WifiLogger ringbuffer, in default logging mode -->
     <integer translatable="false" name="config_wifi_logger_ring_buffer_default_size_limit_kb">64</integer>
-
-    <!-- True if the device supports split screen as a form of multi-window. -->
-    <bool name="config_supportsSplitScreenMultiWindow">false</bool>
 </resources>
