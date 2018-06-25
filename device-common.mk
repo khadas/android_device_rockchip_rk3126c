@@ -46,7 +46,11 @@ $(call inherit-product-if-exists, vendor/rockchip/$(TARGET_BOARD_PLATFORM)/devic
 
 #for enable optee support
 ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
-
+#Choose TEE storage type
+#auto (storage type decide by storage chip emmc:rpmb nand:rkss)
+#rpmb
+#rkss
+PRODUCT_PROPERTY_OVERRIDES += ro.tee.storage=rkss
 PRODUCT_COPY_FILES += \
        device/rockchip/common/init.optee_verify.rc:root/init.optee.rc
 endif
