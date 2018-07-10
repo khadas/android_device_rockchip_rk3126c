@@ -58,3 +58,6 @@ on boot
     chown system system /sys/class/devfreq/10091000.gpu/governor
     chmod 0660 /sys/class/devfreq/10091000.gpu/governor
 
+    # update dirty params
+    write proc/sys/vm/dirty_background_ratio 1
+    write proc/sys/vm/dirty_ratio 2
