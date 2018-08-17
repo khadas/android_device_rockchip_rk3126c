@@ -28,6 +28,19 @@ ENABLE_CPUSETS := true
 TARGET_PREBUILT_KERNEL := kernel/arch/arm/boot/zImage
 PRODUCT_PACKAGE_OVERLAYS += device/rockchip/$(TARGET_BOARD_PLATFORM)/overlay
 
+IS_UPGRADE_TO_P := false
+
+ifneq ($(strip $(IS_UPGRADE_TO_P)), true)
+BOARD_AVB_ENABLE := false
+
+ifeq ($(filter true, $(BOARD_AVB_ENABLE)), )
+BOARD_KERNEL_CMDLINE := console=ttyFIQ0 androidboot.baseband=N/A androidboot.selinux=permissive androidboot.wificountrycode=US androidboot.veritymode=enforcing androidboot.hardware=rk30board androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init skip_initramfs rootwait ro init=/init root=PARTUUID=af01642c-9b84-11e8-9b2a-234eb5e198a0
+else
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive androidboot.wificountrycode=US androidboot.hardware=rk30board androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init skip_initramfs rootwait ro init=/init rootdelay=1
+endif
+
+ROCKCHIP_RECOVERYIMAGE_CMDLINE_ARGS := console=ttyFIQ0 androidboot.baseband=N/A androidboot.selinux=permissive androidboot.wificountrycode=US androidboot.veritymode=enforcing androidboot.hardware=rk30board androidboot.console=ttyFIQ0 firmware_class.path=/vendor/etc/firmware init=/init root=PARTUUID=af01642c-9b84-11e8-9b2a-234eb5e198a0
+endif
 
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
 BUILD_EMULATOR := false
@@ -87,7 +100,7 @@ BOARD_TEMPERATURE_SENSOR_SUPPORT := false
 BOARD_USB_HOST_SUPPORT := true
 
 #for optee support
-PRODUCT_HAVE_OPTEE ?= true
+PRODUCT_HAVE_OPTEE := false
 BOARD_USE_SPARSE_SYSTEM_IMAGE := true
 
 # Google Service and frp overlay
