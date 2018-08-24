@@ -15,4 +15,4 @@
 /devices/platform/10214000.dwmmc/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto
 # Because the performance of rk3126c is less than required,
 # 3216c default closing data-encrypt.
-/dev/block/by-name/userdata       /data               f2fs      noatime,nodiratime,nosuid,nodev,discard,inline_xattr                   wait,check,notrim,encryptable=/mnt/vendor/metadata/key_file
+/dev/block/by-name/userdata       /data               f2fs      noatime,nodiratime,nosuid,nodev,discard,inline_xattr                   wait,check,notrim,forceencrypt=/mnt/vendor/metadata/key_file
