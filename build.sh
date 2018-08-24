@@ -43,9 +43,9 @@ export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
 # source environment and chose target product
 DEVICE=`get_build_var TARGET_PRODUCT`
 BUILD_VARIANT=`get_build_var TARGET_BUILD_VARIANT`
-UBOOT_DEFCONFIG=rk3126_secure_defconfig
+UBOOT_DEFCONFIG=rk3126
 KERNEL_DEFCONFIG=rockchip_defconfig
-KERNEL_DTS=rk3126-bnd-d708
+KERNEL_DTS=rk3126-bnd-d708-avb
 PACK_TOOL_DIR=RKTools/linux/Linux_Pack_Firmware
 IMAGE_PATH=rockdev/Image-$TARGET_PRODUCT
 export PROJECT_TOP=`gettop`
@@ -61,7 +61,7 @@ export STUB_PATCH_PATH=$STUB_PATH/PATCHES
 
 # build uboot
 echo "start build uboot"
-cd u-boot && make distclean && make $UBOOT_DEFCONFIG && ./mkv7.sh && cd -
+cd u-boot && ./make.sh $UBOOT_DEFCONFIG && cd -
 if [ $? -eq 0 ]; then
     echo "Build uboot ok!"
 else
@@ -72,7 +72,7 @@ fi
 
 # build kernel
 echo "Start build kernel"
-cd kernel && make ARCH=arm $KERNEL_DEFCONFIG && make ARCH=arm $KERNEL_DTS.img -j12 && cd -
+cd kernel && make ARCH=arm $KERNEL_DEFCONFIG && make ARCH=arm $KERNEL_DTS.img -j64 && cd -
 if [ $? -eq 0 ]; then
     echo "Build kernel ok!"
 else
@@ -84,7 +84,7 @@ fi
 # build android
 echo "start build android"
 make installclean
-make -j12
+make -j64
 if [ $? -eq 0 ]; then
     echo "Build android ok!"
 else
@@ -113,27 +113,27 @@ if [ "$BUILD_OTA" = true ] ; then
 fi
 
 
-mkdir -p $PACK_TOOL_DIR/rockdev/Image/
-cp -f $IMAGE_PATH/* $PACK_TOOL_DIR/rockdev/Image/
+if [ "$BUILD_OTA" = true ] ; then
+    mkdir -p $PACK_TOOL_DIR/rockdev/Image/
+    cp -f $IMAGE_PATH/* $PACK_TOOL_DIR/rockdev/Image/
 
-echo "Make update.img"
-cd $PACK_TOOL_DIR/rockdev && ./mkupdate.sh
-if [ $? -eq 0 ]; then
-    echo "Make update image ok!"
-else
-    echo "Make update image failed!"
-    exit 1
+    echo "Make update.img"
+    cd $PACK_TOOL_DIR/rockdev && ./mkupdate.sh
+    if [ $? -eq 0 ]; then
+        echo "Make update image ok!"
+    else
+        echo "Make update image failed!"
+        exit 1
+    fi
+    cd -
+    mv $PACK_TOOL_DIR/rockdev/update.img $IMAGE_PATH/
+    rm $PACK_TOOL_DIR/rockdev/Image -rf
 fi
-cd -
-
-mv $PACK_TOOL_DIR/rockdev/update.img $IMAGE_PATH/
-rm $PACK_TOOL_DIR/rockdev/Image -rf
 
 mkdir -p $STUB_PATH
 
 #Generate patches
-
-.repo/repo/repo forall  -c '[ "$REPO_REMOTE" = "rk" ] && { REMOTE_DIFF=`git log $REPO_REMOTE/$REPO_RREV..HEAD`; LOCAL_DIFF=`git diff`; [ -n "$REMOTE_DIFF" ] && { mkdir -p $STUB_PATCH_PATH/$REPO_PATH/; git format-patch $REPO_REMOTE/$REPO_RREV..HEAD -o $STUB_PATCH_PATH/$REPO_PATH; git merge-base HEAD $REPO_REMOTE/$REPO_RREV | xargs git show -s > $STUB_PATCH_PATH/$REPO_PATH/git-merge-base.txt; } || :; [ -n "$LOCAL_DIFF" ] && { mkdir -p $STUB_PATCH_PATH/$REPO_PATH/; git reset HEAD ./; git diff > $STUB_PATCH_PATH/$REPO_PATH/local_diff.patch; } || :; }'
+#.repo/repo/repo forall  -c '[ "$REPO_REMOTE" = "rk" ] && { REMOTE_DIFF=`git log $REPO_REMOTE/$REPO_RREV..HEAD`; LOCAL_DIFF=`git diff`; [ -n "$REMOTE_DIFF" ] && { mkdir -p $STUB_PATCH_PATH/$REPO_PATH/; git format-patch $REPO_REMOTE/$REPO_RREV..HEAD -o $STUB_PATCH_PATH/$REPO_PATH; git merge-base HEAD $REPO_REMOTE/$REPO_RREV | xargs git show -s > $STUB_PATCH_PATH/$REPO_PATH/git-merge-base.txt; } || :; [ -n "$LOCAL_DIFF" ] && { mkdir -p $STUB_PATCH_PATH/$REPO_PATH/; git reset HEAD ./; git diff > $STUB_PATCH_PATH/$REPO_PATH/local_diff.patch; } || :; }'
 
 #Copy stubs
 cp commit_id.xml $STUB_PATH/manifest_${DATE}.xml
