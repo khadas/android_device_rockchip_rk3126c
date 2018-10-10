@@ -7,6 +7,7 @@
 /dev/block/by-name/oem            /oem                ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,check
 /dev/block/by-name/metadata       /mnt/vendor/metadata           ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait
 /dev/block/by-name/misc         /misc               emmc      defaults     defaults
+/dev/block/by-name/cache          /cache              ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait,check
 
 /devices/platform/*usb*   auto vfat defaults      voldmanaged=usb:auto
 
@@ -15,4 +16,4 @@
 /devices/platform/10214000.dwmmc/mmc_host*        auto  auto    defaults        voldmanaged=sdcard1:auto
 # Because the performance of rk3126c is less than required,
 # 3216c default closing data-encrypt.
-/dev/block/by-name/userdata       /data               f2fs      noatime,nodiratime,nosuid,nodev,discard,inline_xattr                   wait,check,notrim,forceencrypt=/mnt/vendor/metadata/key_file
+/dev/block/by-name/userdata       /data               f2fs      noatime,nodiratime,nosuid,nodev,discard,inline_xattr                   wait,check,notrim,forceencrypt=/cache/key_file
