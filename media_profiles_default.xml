@@ -134,7 +134,7 @@
         your sensor max resolution for preview(Not Capture resolution)  -->
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                bitRate="256000"
+                bitRate="1200000"
                 width="640"
                 height="480"
                 frameRate="30" />
@@ -150,7 +150,7 @@
         <!--
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="256000"
+                   bitRate="1200000"
                    width="720"
                    height="480"
                    frameRate="30" />
@@ -167,7 +167,7 @@
 <!--
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="256000"
+                   bitRate="1200000"
                    width="800"
                    height="600"
                    frameRate="30" />
@@ -184,7 +184,7 @@
 <!--
         <EncoderProfile quality="576p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="256000"
+                   bitRate="1200000"
                    width="720"
                    height="576"
                    frameRate="30" />
@@ -407,7 +407,7 @@
               your sensor max resolution for preview(Not Capture resolution)  -->
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                bitRate="256000"
+                bitRate="1200000"
                 width="640"
                 height="480"
                 frameRate="30" />
@@ -423,7 +423,7 @@
 <!--
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="256000"
+                   bitRate="1200000"
                    width="720"
                    height="480"
                    frameRate="30" />
@@ -440,7 +440,7 @@
 <!--
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="256000"
+                   bitRate="1200000"
                    width="800"
                    height="600"
                    frameRate="30" />
@@ -545,7 +545,7 @@
 <!--
          <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
             <Video codec="h264"
-                   bitRate="256000"
+                   bitRate="1200000"
                    width="720"
                    height="480"
                    frameRate="30" />
