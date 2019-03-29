@@ -60,4 +60,4 @@ on boot
 
     # update dirty params
     write proc/sys/vm/dirty_background_ratio 1
-    write proc/sys/vm/dirty_ratio 2
+    write proc/sys/vm/dirty_ratio 20
