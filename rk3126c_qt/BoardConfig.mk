@@ -1,5 +1,5 @@
 #
-# Copyright 2014 The Android Open Source Project
+# Copyright 2014 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-add_lunch_combo rk3126c_go-userdebug
-add_lunch_combo rk3126c_go-user
+include device/rockchip/rk3126c/BoardConfig.mk
 
-add_lunch_combo rk3126c_o-userdebug
-add_lunch_combo rk3126c_o-user
+# For Normal device, set this Marco to false or not set
+BUILD_WITH_GO_OPT := false
+BUILD_WITH_GOOGLE_GMS_EXPRESS := false

@@ -33,6 +33,11 @@ ifeq ($(HOST_OS),linux)
   TARGET_USERIMAGES_USE_F2FS := true
 endif
 
+ PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init.recovery.rk30board.rc:recovery/root/init.recovery.rk30board.rc \
+    vendor/rockchip/common/bin/$(TARGET_ARCH)/busybox:recovery/root/sbin/busybox \
+
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk3126c.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3126c.rc \
     $(LOCAL_PATH)/init.rk30board.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk30board.usb.rc \

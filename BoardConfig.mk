@@ -16,7 +16,8 @@
 
 # Use the non-open-source parts, if they're present
 -include vendor/rockchip/common/BoardConfigVendor.mk
--include device/rockchip/common/BoardConfig.mk
+
+CURRENT_SDK_VERSION := RK3126C_ANDROID10.0_QT_V1.0
 
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -25,8 +26,13 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 ENABLE_CPUSETS := true
 
-TARGET_PREBUILT_KERNEL := kernel/arch/arm/boot/zImage
-PRODUCT_PACKAGE_OVERLAYS += device/rockchip/$(TARGET_BOARD_PLATFORM)/overlay
+TARGET_PREBUILT_KERNEL := kernel/arch/arm/boot/Image
+BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm/boot/dts/
+PRODUCT_KERNEL_DTS ?= rk3126-bnd-d708-avb
+PRODUCT_KERNEL_ARCH ?= arm
+PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig  android-10.config
+SF_PRIMARY_DISPLAY_ORIENTATION := 0
+PRODUCT_UBOOT_CONFIG ?= rk3126
 
 IS_UPGRADE_TO_P := false
 
@@ -34,7 +40,7 @@ BOARD_AVB_ENABLE := true
 
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
 BUILD_EMULATOR := false
-TARGET_BOARD_PLATFORM ?= rk312x
+TARGET_BOARD_PLATFORM := rk3126c
 TARGET_BOARD_PLATFORM_GPU := mali400
 BOARD_USE_DRM := true
 GRAPHIC_MEMORY_PROVIDER := dma_buf
