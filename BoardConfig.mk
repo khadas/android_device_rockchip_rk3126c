@@ -28,6 +28,7 @@ ENABLE_CPUSETS := true
 
 TARGET_PREBUILT_KERNEL := kernel/arch/arm/boot/Image
 BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm/boot/dts/
+#PRODUCT_KERNEL_DTS ?= rk3126-bnd-m88-emmc
 PRODUCT_KERNEL_DTS ?= rk3126-bnd-d708-avb
 PRODUCT_KERNEL_ARCH ?= arm
 PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig  android-10.config
@@ -36,7 +37,7 @@ PRODUCT_UBOOT_CONFIG ?= rk3126
 
 IS_UPGRADE_TO_P := false
 
-BOARD_AVB_ENABLE := true
+#BOARD_AVB_ENABLE := true
 
 # Disable emulator for "make dist" until there is a 64-bit qemu kernel
 BUILD_EMULATOR := false
