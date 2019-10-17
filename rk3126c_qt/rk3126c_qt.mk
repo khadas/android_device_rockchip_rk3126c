@@ -18,7 +18,7 @@
 PRODUCT_SHIPPING_API_LEVEL := 29
 PRODUCT_FSTAB_TEMPLATE := $(LOCAL_PATH)/fstab.in
 PRODUCT_DTBO_TEMPLATE := $(LOCAL_PATH)/dt-overlay.in
-PRODUCT_BOOT_DEVICE := 0500000.nandc,1021c000.dwmmc
+PRODUCT_BOOT_DEVICE := 10500000.nandc,1021c000.dwmmc
 include device/rockchip/common/build/rockchip/DynamicPartitions.mk
 include device/rockchip/common/BoardConfig.mk
 include device/rockchip/rk3126c/rk3126c_qt/BoardConfig.mk
