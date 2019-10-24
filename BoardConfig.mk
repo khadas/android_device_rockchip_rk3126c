@@ -26,7 +26,7 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 ENABLE_CPUSETS := true
 
-TARGET_PREBUILT_KERNEL := kernel/arch/arm/boot/Image
+TARGET_PREBUILT_KERNEL := kernel/arch/arm/boot/zImage
 BOARD_PREBUILT_DTBIMAGE_DIR := kernel/arch/arm/boot/dts/
 #PRODUCT_KERNEL_DTS ?= rk3126-bnd-m88-emmc
 PRODUCT_KERNEL_DTS ?= rk3126-bnd-d708-avb
