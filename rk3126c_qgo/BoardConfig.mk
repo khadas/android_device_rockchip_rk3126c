@@ -13,19 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+include device/rockchip/rk3126c/BoardConfig.mk
 
-PRODUCT_MAKEFILES := \
-        $(LOCAL_DIR)/rk3126c_go/rk3126c_go.mk \
-        $(LOCAL_DIR)/rk3126c_o/rk3126c_o.mk \
-        $(LOCAL_DIR)/rk3126c_qt/rk3126c_qt.mk \
-        $(LOCAL_DIR)/rk3126c_qgo/rk3126c_qgo.mk
-
-COMMON_LUNCH_CHOICES := \
-	rk3126c_go-userdebug \
-	rk3126c_go-user \
-	rk3126c_o-userdebug \
-	rk3126c_o-user \
-	rk3126c_qt-userdebug \
-	rk3126c_qt-user \
-	rk3126c_qgo-userdebug \
-	rk3126c_qgo-user
+# For Normal device, set this Marco to false or not set
+BUILD_WITH_GO_OPT := true
+PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig  android-10-go.config
+BUILD_WITH_GOOGLE_GMS_EXPRESS := true

@@ -16,5 +16,6 @@
 include device/rockchip/rk3126c/BoardConfig.mk
 
 # For Normal device, set this Marco to false or not set
+PRODUCT_KERNEL_CONFIG ?= rockchip_defconfig  android-10.config
 BUILD_WITH_GO_OPT := false
 BUILD_WITH_GOOGLE_GMS_EXPRESS := false
