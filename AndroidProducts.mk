@@ -15,16 +15,10 @@
 #
 
 PRODUCT_MAKEFILES := \
-        $(LOCAL_DIR)/rk3126c_go/rk3126c_go.mk \
-        $(LOCAL_DIR)/rk3126c_o/rk3126c_o.mk \
         $(LOCAL_DIR)/rk3126c_qt/rk3126c_qt.mk \
         $(LOCAL_DIR)/rk3126c_qgo/rk3126c_qgo.mk
 
 COMMON_LUNCH_CHOICES := \
-	rk3126c_go-userdebug \
-	rk3126c_go-user \
-	rk3126c_o-userdebug \
-	rk3126c_o-user \
 	rk3126c_qt-userdebug \
 	rk3126c_qt-user \
 	rk3126c_qgo-userdebug \
