@@ -14,13 +14,6 @@
 # limitations under the License.
 #
 
-PRODUCT_PACKAGES += \
-    memtrack.$(TARGET_BOARD_PLATFORM) \
-    android.hardware.memtrack@1.0-service \
-    android.hardware.memtrack@1.0-impl \
-    WallpaperPicker \
-    Launcher3
-
 #$_rbox_$_modify_$_zhengyang: add displayd
 PRODUCT_PACKAGES += \
     displayd \
