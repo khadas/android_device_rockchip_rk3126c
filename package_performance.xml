@@ -5,4 +5,5 @@
 <app package="android.autofillservice.cts" mode="1" />
 <app package="com.android.cts.usepermission.UsePermissionTest23" mode="1" />
 <app package="com.android.cts.usepermission.UsePermissionTest22" mode="1" />
+<app package="com.google.android.youtube.gts" mode="1" />
 </performance-package>
