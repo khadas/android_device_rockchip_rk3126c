@@ -24,7 +24,7 @@ include device/rockchip/rk3126c/rk3126c_qgo/BoardConfig.mk
 $(call inherit-product, device/rockchip/rk3126c/device-common.mk)
 $(call inherit-product, device/rockchip/common/device.mk)
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/../overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_CHARACTERISTICS := tablet
 
