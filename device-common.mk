@@ -40,12 +40,46 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.rk3126c.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3126c.rc \
     $(LOCAL_PATH)/init.rk3126c.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rk3126c.usb.rc \
     $(LOCAL_PATH)/wake_lock_filter.xml:system/etc/wake_lock_filter.xml \
-    device/rockchip/$(TARGET_BOARD_PLATFORM)/package_performance.xml:$(TARGET_COPY_OUT_OEM)/etc/package_performance.xml \
+    device/rockchip/$(TARGET_BOARD_PLATFORM)/package_performance.xml:$(TARGET_COPY_OUT_ODM)/etc/package_performance.xml \
     device/rockchip/$(TARGET_BOARD_PLATFORM)/media_profiles_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml \
     vendor/rockchip/common/phone/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 $(call inherit-product-if-exists, vendor/rockchip/$(TARGET_BOARD_PLATFORM)/device-vendor.mk)
+
+#
+## setup boot-shutdown animation configs.
+#
+HAVE_BOOT_ANIMATION := $(shell test -f $(TARGET_DEVICE_DIR)/bootanimation.zip && echo true)
+HAVE_SHUTDOWN_ANIMATION := $(shell test -f $(TARGET_DEVICE_DIR)/shutdownanimation.zip && echo true)
+
+ifeq ($(HAVE_BOOT_ANIMATION), true)
+PRODUCT_COPY_FILES += $(TARGET_DEVICE_DIR)/bootanimation.zip:$(TARGET_COPY_OUT_ODM)/media/bootanimation.zip
+endif
+
+ifeq ($(HAVE_SHUTDOWN_ANIMATION), true)
+PRODUCT_COPY_FILES += $(TARGET_DEVICE_DIR)/shutdownanimation.zip:$(TARGET_COPY_OUT_ODM)/media/shutdownanimation.zip
+endif
+
+#
+## setup oem-content configs.
+#
+HAVE_PRESET_CONTENT := $(shell test -d $(TARGET_DEVICE_DIR)/pre_set && echo true)
+HAVE_PRESET_DEL_CONTENT := $(shell test -d $(TARGET_DEVICE_DIR)/pre_set_del && echo true)
+
+ifeq ($(HAVE_PRESET_DEL_CONTENT), true)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(TARGET_DEVICE_DIR)/pre_set_del,$(TARGET_COPY_OUT_ODM)/pre_set_del)
+
+PRODUCT_PROPERTY_OVERRIDES += ro.boot.copy_oem=true
+endif
+
+ifeq ($(HAVE_PRESET_CONTENT), true)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(TARGET_DEVICE_DIR)/pre_set,$(TARGET_COPY_OUT_ODM)/pre_set)
+
+PRODUCT_PROPERTY_OVERRIDES += ro.boot.copy_oem=true
+endif
 
 #for enable optee support
 ifeq ($(strip $(PRODUCT_HAVE_OPTEE)),true)
