@@ -23,6 +23,7 @@ include device/rockchip/common/BoardConfig.mk
 include device/rockchip/rk3126c/rk3126c_qt/BoardConfig.mk
 $(call inherit-product, device/rockchip/rk3126c/device-common.mk)
 $(call inherit-product, device/rockchip/common/device.mk)
+$(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/../overlay
 
